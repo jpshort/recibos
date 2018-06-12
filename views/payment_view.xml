@@ -6,14 +6,15 @@
      <field name="inherit_id" ref="account.view_account_payment_form"/>
      <field name="arch" type="xml">
         <xpath expr = "//group/div[@name='amount_div']" position="after">
-            <field name="concepto" string="Por Concepto de:"/>
+            <field name="concepto" String="Por Concepto de:"/>
             <field name="anexo"/>            
             <field name="rubro"/>
             <field name="evento"/>
             <field name="solicitante"/>            
             <field name="autorizado_por"/>
+            <field name="amount_in_word"/>
         </xpath>
      </field>
-  </record>
+  </record> 
   </data> 
 </odoo>

@@ -30,7 +30,10 @@
                             </tr>
                             <tr>
                               <td style="width:200px;">La suma de:  </td>
-		      <td style="width:500px;border-bottom: 1px solid black;"><span t-field="o.amount"/> </td>
+		              <td style="width:500px;border-bottom: 1px solid black;"><span t-field="o.amount"/>
+                                <t t-if="o.amount_in_word"> <span t-field="o.amount_in_word"/>                      
+                                </t>
+                                </td>
                             </tr>
                                                    
                             <tr>
