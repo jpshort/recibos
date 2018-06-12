@@ -7,6 +7,17 @@
                 <div class="page">
                     <!--<div class="header" style="text-align:center;"><h1><strong>Payment Receipt</strong></h1></div>
                     -->
+                    <table>
+                        <tr>
+                            <td colspan="2" style="width:600;color:White;">.</td>
+                            <td style="width:200;">
+                                <t t-if="o.name">
+                                   <strong> <p t-field="o.name"/></strong>
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+
                     <div class= "row" style="border: 1px solid black;">
                        <div style="padding: 5px;">   
                            <div class="col-xs-5 col-xs-offset-6">
@@ -55,7 +66,6 @@
                             </tr>
                           </table>
                           <br/>                         
-                          <br/>
                           <div class="row  align-items-center">
                              <div class="col-xs-6 pull-left mt16">
                                 <div align="Center">
@@ -130,20 +140,21 @@
                                        <td style="width:200;border: 1px solid black; color:White;">.</td>
                                   </tr>
                                   <tr>
-                                      <td class="text-center"  style="width:600;color:White">.</td>
-                                      <td style="width:200;border;color:White;">.</td>
+                                      <td colspan="2" class="text-center"  style="width:600;color:White">.</td>
+                                      <td style="width:200;border-right: 1px solid black;color:White;">.</td>
                                   </tr>
                                   <tr>
-                                      <td class="text-center"  style="width:600;"><span t-esc="35*'_'"/></td>
-                                      <td style="width:200;border;color:White;">.</td>
+                                      <td colspan="2" class="text-center"  style="width:600;"><span t-esc="35*'_'"/></td>
+                                      <td style="width:200;border-right: 1px solid black;color:White;">.</td>
                                   </tr>
                                   <tr>
-                                      <td  class="text-center" style="width:600;">Director(a) Departamento de Tesoreria</td>
-                                      <td style="width:200;color:White">.</td>
+                                      <td colspan="2"  class="text-center" style="width:600;">Director(a) Departamento de Tesoreria</td>
+                                      <td style="width:200;color:White;border-right: 1px solid black;">.</td>
                                   </tr>
                                   <tr>
-                                      <td class="text-center"  style="width:600;color:White">.</td>
-                                      <td style="width:200;border;color:White;">.</td>
+                                      <td colspan="2" class="text-center"  style="width:600;color:White">.</td>
+                                      <td style="width:200;border-right: 1px solid black;
+                                                 border-bottom: 1px solid black;color:White;">.</td>
                                   </tr>
                                </tbody>
                            </table>                          
@@ -155,10 +166,20 @@
                       </div>
                    </div>
                    <div class= "row" style="border: 1px solid black;">
-                       <br/>
-                       <br/>
-                       <br/>
-                       <br/>
+                        <table>                   
+                           <tr>
+                               <td colspan="2" style="width:600;color:White;">.</td>
+                               <td style="width:200;"> 
+                                  <t t-if="o.name">
+                                    <strong> <p t-field="o.name"/></strong> 
+                                   </t>
+                               </td>
+                           </tr>
+                           <tr> <td style="width:600;color:White;">.</td> </tr>
+                           <tr> <td style="width:600;color:White;">.</td> </tr>
+                           <tr> <td style="width:600;color:White;">.</td> </tr>
+                           <tr> <td style="width:600;color:White;">.</td> </tr>
+                        </table>
                    </div>
                    <div class= "row" style="border-bottom: 1px solid black;">
                       <br/>
