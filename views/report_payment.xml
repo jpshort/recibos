@@ -28,42 +28,43 @@
                                   </ul>
                                </t>                                  
                            </div>
+                           
                           <br/>
                           <br/>
-                          <table>
+                          <table  style="width:100%">
                             <tr style="padding:5px;">
-                              <td style="width:200px;">Departamento Solicitante:  </td>
-                              <td style="width:500px;border-bottom: 1px solid black;">CENTRO DE ESTUDIOS EDUCATIVOS</td>
+                              <td style="width:30%;">Departamento Solicitante:  </td>
+                              <td style="width:70%;border-bottom: 1px solid black;">CENTRO DE ESTUDIOS EDUCATIVOS</td>
                             </tr>
                             <tr style="padding:5px;">
-                              <td style="width:200px;">Solicitamos pagar a favor de:  </td>
-                              <td style="width:500px;border-bottom: 1px solid black;"><span t-field="o.partner_id.name"/> </td>
+                              <td style="width:30%;">Solicitamos pagar a favor de:  </td>
+                              <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.partner_id.name"/> </td>
                             </tr>
                             <tr>
-                              <td style="width:200px;">La suma de:  </td>
-		              <td style="width:500px;border-bottom: 1px solid black;"><span t-field="o.amount"/>
+                              <td style="width:30%;">La suma de:  </td>
+		              <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.amount"/>
                                 <t t-if="o.amount_in_word"> <span t-field="o.amount_in_word"/>                      
                                 </t>
                                 </td>
                             </tr>
                                                    
                             <tr>
-                              <td style="width:200px;">Por concepto de:  </td>
-		      <td style="width:500px;border-bottom: 1px solid black;"><span t-field="o.concepto"/> </td>
+                              <td style="width:30%;">Por concepto de:  </td>
+		      <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.concepto"/> </td>
                             </tr>
                             <tr>
-                              <td style="width:200px;">Documentacion Anexa:  </td>
-                      <td style="width:500px;border-bottom: 1px solid black;"><span t-field="o.anexo"/> </td>
+                              <td style="width:30%;">Documentacion Anexa:  </td>
+                      <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.anexo"/> </td>
                             </tr>
                             <tr>
-                              <td style="width:200px;">Rubro del Programa a Cargar:  </td>
-                      <td style="width:500px;border-bottom: 1px solid black;"><span t-field="o.rubro"/> </td>
+                              <td style="width:30%;">Rubro del Programa a Cargar:  </td>
+                      <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.rubro"/> </td>
                             </tr>
 
                             <tr>
-                              <td style="width:200px;">Evento o Actividad a Cargar:  </td>
-                               <td style="width:500px;border-bottom: 1px solid black;"><span t-field="o.evento"/> </td>
-                            </tr>
+                              <td style="width:30%;">Evento o Actividad a Cargar:  </td>
+                               <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.evento"/> </td>
+                            </tr> 
                           </table>
                           <br/>                         
                           <div class="row  align-items-center">
@@ -104,56 +105,56 @@
                                <p>Cuenta: <span t-esc="35*'_'"/></p>
                            </div>
 
-                           <table>                                
+                           <table style="width:100%">                                
                                <thead style="border: 1px solid black; background-color:#A9A9A9;">
                                   <tr>
-                                      <td class="text-center" colspan="2" style="width:600;border: 1px solid black;">DEDUCCIONES</td>
-                                      <td class="text-center" style="width:200;border: 1px solid black;">DEDUCCIONES</td>
+                                      <td  colspan="2" class="text-center" style="width:80%;border: 1px solid black;">DEDUCCIONES</td>
+                                      <td class="text-center" style="width:20%;border: 1px solid black;">DEDUCCIONES</td>
                                   </tr>
                                </thead>
 
                                <tbody style="border: 1px solid black;">
                                   <tr>
-                                      <td  colspan="2"  style="width:600;border: 1px solid black;color:White;">.</td>
-                                      <td style="width:200;border: 1px solid black;color:White;">.</td>
+                                      <td  colspan="2"  style="width:80%;border: 1px solid black;color:White;">.</td>
+                                      <td style="width:20%;border: 1px solid black;color:White;">.</td>
                                   </tr>
                                   <tr>
-                                       <td  colspan="2" style="width:600;border: 1px solid black;color:White;">.</td>
-                                       <td style="width:200;border: 1px solid black;color:White;">.</td>
+                                       <td  colspan="2" style="width:80%;border: 1px solid black;color:White;">.</td>
+                                       <td style="width:20%;border: 1px solid black;color:White;">.</td>
                                   </tr>
                                   <tr>
-                                       <td  colspan="2" style="width:600;border: 1px solid black;color:White;">.</td>
-                                       <td style="width:200;border: 1px solid black;color:White;">.</td>
+                                       <td  colspan="2" style="width:80*;border: 1px solid black;color:White;">.</td>
+                                       <td style="width:20%;border: 1px solid black;color:White;">.</td>
                                   </tr>
                                   <tr>
-                                       <td  colspan="2" style="width:600;border: 1px solid black;color:White;">.</td>
-                                       <td style="width:200;border: 1px solid black;color:White;">.</td>
+                                       <td  colspan="2" style="width:80%;border: 1px solid black;color:White;">.</td>
+                                       <td style="width:20%;border: 1px solid black;color:White;">.</td>
                                   </tr>
                                   <tr>
-                                       <td  class="text-right" style="width:500;border-top: 1px solid black;">Total Deducciones:  </td>
-                                       <td style="width:100;border: 1px solid black;color:White;">.</td>
-                                       <td style="width:200;border: 1px solid black;color:White;">.</td>
+                                       <td  class="text-right" style="width:75%;border-top: 1px solid black;">Total Deducciones:  </td>
+                                       <td style="width:10%;border: 1px solid black;color:White;">.</td>
+                                       <td style="width:15%;border: 1px solid black;color:White;">.</td>
                                   </tr>
                                   <tr>
-                                       <td  class="text-right" style="width:500;">Neto a Pagar:  </td>
-                                       <td style="width:100;border: 1px solid black; color:White;">.</td>
-                                       <td style="width:200;border: 1px solid black; color:White;">.</td>
+                                       <td  class="text-right" style="width:75%;">Neto a Pagar:  </td>
+                                       <td style="width:10%;border: 1px solid black; color:White;">.</td>
+                                       <td style="width:15%;border: 1px solid black; color:White;">.</td>
                                   </tr>
                                   <tr>
-                                      <td colspan="2" class="text-center"  style="width:600;color:White">.</td>
-                                      <td style="width:200;border-right: 1px solid black;color:White;">.</td>
+                                      <td colspan="2" class="text-center"  style="width:80%;color:White">.</td>
+                                      <td style="width:20%;border-right: 1px solid black;color:White;">.</td>
                                   </tr>
                                   <tr>
-                                      <td colspan="2" class="text-center"  style="width:600;"><span t-esc="35*'_'"/></td>
-                                      <td style="width:200;border-right: 1px solid black;color:White;">.</td>
+                                      <td colspan="2" class="text-center"  style="width:80%;"><span t-esc="35*'_'"/></td>
+                                      <td style="width:20%;border-right: 1px solid black;color:White;">.</td>
                                   </tr>
                                   <tr>
-                                      <td colspan="2"  class="text-center" style="width:600;">Director(a) Departamento de Tesoreria</td>
-                                      <td style="width:200;color:White;border-right: 1px solid black;">.</td>
+                                      <td colspan="2"  class="text-center" style="width:80%;">Director(a) Departamento de Tesoreria</td>
+                                      <td style="width:20%;color:White;border-right: 1px solid black;">.</td>
                                   </tr>
                                   <tr>
-                                      <td colspan="2" class="text-center"  style="width:600;color:White">.</td>
-                                      <td style="width:200;border-right: 1px solid black;
+                                      <td colspan="2" class="text-center"  style="width80%;color:White">.</td>
+                                      <td style="width:20%;border-right: 1px solid black;
                                                  border-bottom: 1px solid black;color:White;">.</td>
                                   </tr>
                                </tbody>
@@ -168,8 +169,8 @@
                    <div class= "row" style="border: 1px solid black;">
                         <table>                   
                            <tr>
-                               <td colspan="2" style="width:600;color:White;">.</td>
-                               <td style="width:200;"> 
+                               <td colspan="2" style="width:80%;color:White;">.</td>
+                               <td style="width:20%;"> 
                                   <t t-if="o.name">
                                     <strong> <p t-field="o.name"/></strong> 
                                    </t>
@@ -183,37 +184,37 @@
                    </div>
                    <div class= "row" style="border-bottom: 1px solid black;">
                       <br/>
-                      <table>
+                      <table style="width:100%">
                          <tr>
-                             <td class="text-center" style="width:266;"><span t-esc="30*'_'"/></td>
-                             <td class="text-center" style="width:266;"><span t-esc="30*'_'"/></td>
-                             <td class="text-center" style="width:267;"><span t-esc="30*'_'"/></td>
+                             <td class="text-center" style="width:33%;"><span t-esc="30*'_'"/></td>
+                             <td class="text-center" style="width:33%;"><span t-esc="30*'_'"/></td>
+                             <td class="text-center" style="width:34%;"><span t-esc="30*'_'"/></td>
                          </tr>
                          <tr>
-                             <td class="text-center" style="width:266;">Codificado</td>
-                             <td class="text-center" style="width:266;">Revisado Por</td>
-                             <td class="text-center" style="width:267;">Digitador por</td>
+                             <td class="text-center" style="width:33%;">Codificado</td>
+                             <td class="text-center" style="width:33%;">Revisado Por</td>
+                             <td class="text-center" style="width:34%;">Digitador por</td>
                          </tr>
                       </table>
                       <br/>
                    </div>
                    <div class= "row">
-                       <table>
+                       <table stype="width:100%">
                            <tr>
-                               <td style="width:600;">Autorizacion de Expedicion de Cheque:</td>
-                               <td style="width:200;color:White;">.</td>
+                               <td style="width:80%;">Autorizacion de Expedicion de Cheque:</td>
+                               <td style="width:20%;color:White;">.</td>
                            </tr>
                            <tr>
-                               <td style="width:600;color:White;">.</td>
-                               <td style="width:200;color:White;">.</td>
+                               <td style="width:80%;color:White;">.</td>
+                               <td style="width:20%;color:White;">.</td>
                            </tr>
                            <tr>
-                               <td style="width:500;color:White;">.</td>
-                               <td  class="text-center" style="width:300;"><span t-esc="30*'_'"/></td>
+                               <td style="width:70%;color:White;">.</td>
+                               <td  class="text-center" style="width:30%;"><span t-esc="30*'_'"/></td>
                            </tr>
                            <tr>
-                               <td style="width:500;color:White;">.</td>
-                               <td  class="text-center" style="width:300;">Administrador(a)</td>
+                               <td style="width:70%;color:White;">.</td>
+                               <td  class="text-center" style="width:30%;">Administrador(a)</td>
                            </tr>
                        </table>
                    </div>
