@@ -59,7 +59,7 @@ MONEDAS = (
     {'country': u'México', 'currency': 'MXN', 'singular': u'PESO MEXICANO', 'plural': u'PESOS MEXICANOS', 'symbol': u'$'},
     {'country': u'Perú', 'currency': 'PEN', 'singular': u'NUEVO SOL', 'plural': u'NUEVOS SOLES', 'symbol': u'S/.'},
     {'country': u'Reino Unido', 'currency': 'GBP', 'singular': u'LIBRA', 'plural': u'LIBRAS', 'symbol': u'£'},
-    {'country': u'Republica Dominicana', 'currency': 'pesos', 'singular': u'peso', 'plural': u'pesos', 'symbol': u'RD'}
+    {'country': u'Republica Dominicana', 'currency': 'DOP', 'singular': u'PESO', 'plural': u'PESOS', 'symbol': u'RD'}
 )
 # Para definir la moneda me estoy basando en los código que establece el ISO 4217
 # Decidí poner las variables en inglés, porque es más sencillo de ubicarlas sin importar el país
@@ -67,17 +67,19 @@ MONEDAS = (
 
 
 def to_word(number, mi_moneda=None):
-    # if mi_moneda != None:
-    #     try:
-    #         moneda = ifilter(lambda x: x['currency'] == mi_moneda, MONEDAS).next()
-    #         if number < 2:
-    #             moneda = moneda['singular']
-    #         else:
-    #             moneda = moneda['plural']
-    #     except:
-    #         return u"Tipo de moneda inválida"
-    # else:
-    #     moneda = ""
+    
+    if mi_moneda != None:
+        try:
+            moneda = ifilter(lambda x: x['currency'] == mi_moneda, MONEDAS).next()
+            if number < 2:
+                moneda = moneda['singular']
+            else:
+                moneda = moneda['plural']
+        except:
+            return u"Tipo de moneda inválida"
+    else:
+         moneda = ""
+    
     # """Converts a number into string representation"""
     converted = ''
 
@@ -114,10 +116,10 @@ def to_word(number, mi_moneda=None):
         elif(int(cientos) > 0):
             converted += '%s' % __convert_group(cientos)
 
-    #converted += moneda
+    converted += moneda
 
     if decimal:
-        decimal = "con %s%s" % (decimal, "/100")
+        decimal = " con %s%s" % (decimal, "/100")
         converted += decimal
 
     converted = "%s%s%s" % ("*** ", converted, " ***")
