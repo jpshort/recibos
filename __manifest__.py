@@ -25,7 +25,7 @@
     'summary': """Payment Receipt With Paid Details""",
     'version': '10.0.1.0',
     'description': """Payment Receipt With Paid Details""",
-    'author': 'Cybrosys Techno Solutions',
+    'author': 'Pedro P Nunez Araujo',
     'company': 'Cybrosys Techno Solutions',
     'website': 'http://www.cybrosys.com',
     'category': 'Accounting',
