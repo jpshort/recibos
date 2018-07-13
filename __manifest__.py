@@ -21,18 +21,20 @@
 #
 ##############################################################################
 {
-    'name': 'Contabilidad Pago Recibo por Cheque',
-    'summary': """Pagos por Cheques y Numero""",
+    'name': 'Account Payment Receipt',
+    'summary': """Payment Receipt With Paid Details""",
     'version': '10.0.1.0',
-    'description': """Registrar el banco y numero de Cheque""",
-    'author': 'Pedro Nunez Araujo',
-    'company': 'Caudata Software Solutions',
-    'website': '',
->>>>>>> refs/remotes/origin/master
+    'description': """Payment Receipt With Paid Details""",
+    'author': 'Cybrosys Techno Solutions',
+    'company': 'Cybrosys Techno Solutions',
+    'website': 'http://www.cybrosys.com',
     'category': 'Accounting',
     'depends': ['base', 'account'],
     'license': 'AGPL-3',
-    'data': ['views/payment_view.xml',
+    'data': [
+        'views/report_payment.xml',
+        'views/report.xml',
+        'views/payment_view.xml',
     ],
     'demo': [],
     'images': ['static/description/banner.jpg'],
@@ -40,3 +42,4 @@
     'auto_install': False,
 
 }
+
