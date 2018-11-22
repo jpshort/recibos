@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="account_receipt"
+            model="account.payment"
+            string="Recibo"
+            report_type="qweb-pdf"
+            name="payment_intec.report_receipt"
+            file="payment_intec.report_receipt"
+        />
+    </data>
+</odoo>

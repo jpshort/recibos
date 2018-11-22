@@ -19,8 +19,8 @@ class Payment(models.Model):
     anexo          = fields.Char(string="Documentacion Anexa")
     rubro          = fields.Char(string="Rubro del Presupuesto")
     evento         = fields.Char(string="Evento o Actividad a cargar")
-    solicitante    = fields.Char()
-    autorizado_por = fields.Char()
+    solicitante    = fields.Many2one('res.partner',domain=[('solicitante','=',True)])
+    autorizado_por = fields.Many2one('res.partner',domain=[('autorizador','=',True)])
     estado         = fields.Selection([('impreso','Impreso'),
                                        ('contabilidad','Recibido en Contabilidad'),
                                        ('tesoreria','Recibido en Tesoria'),

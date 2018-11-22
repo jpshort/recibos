@@ -35,6 +35,7 @@
         'views/report_payment.xml',
         'views/report.xml',
         'views/payment_view.xml',
+        'views/partner.xml'
     ],
     'demo': [],
     'images': ['static/description/banner.jpg'],
