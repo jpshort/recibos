@@ -15,18 +15,6 @@ class Payment(models.Model):
     _name    = "account.payment"
     _inherit = "account.payment"
 
-    concepto       = fields.Text()
-    anexo          = fields.Char(string="Documentacion Anexa")
-    rubro          = fields.Char(string="Rubro del Presupuesto")
-    evento         = fields.Char(string="Evento o Actividad a cargar")
-    solicitante    = fields.Many2one('res.partner',domain=[('solicitante','=',True)])
-    autorizado_por = fields.Many2one('res.partner',domain=[('autorizador','=',True)])
-    estado         = fields.Selection([('impreso','Impreso'),
-                                       ('contabilidad','Recibido en Contabilidad'),
-                                       ('tesoreria','Recibido en Tesoria'),
-                                       ('confirmado','Confirmado')], default='impreso')
-
-
     @api.onchange('amount')
     def get_amount_in_word(self):
         self.amount_in_word = number_to_word.to_word(float(self.amount), self.currency_id.name)

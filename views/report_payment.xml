@@ -10,23 +10,62 @@
                 <t t-if="not o or not 'company_id' in o">
                     <t t-set="company" t-value="res_company"/>
                 </t>
+
                 <div class="header">
-                  <div class="row">
-                      <div class="col-xs-8 pull-left">  
-                         <div>INSTITUTO TECNOLOGICO DE SANTO DOMINGO</div>
-                         <div>CENTRO DE ESTUDIOS EDUCATIVOS</div>
+                  <div class="row" align="center">
+                         <div><span t-field="company.name"/> </div>
+                         <div><span t-field="company.street"/> </div>
+                         <div><span t-field="company.street2"/> </div>
+                         <div><span t-field="company.city"/> </div>
+                          
                          <br/>
-                         <div>SOLICITUD DE PAGO</div>
-                      </div>
-                      <div class="col-xs-4">
-                          <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo"
-                                width="100" height="100"/>
-                      </div>
+                        
+                          <t t-if="o.payment_type == 'inbound'"> <div>RECIBO DE INGREO </div> </t>
+                          <t t-if="o.payment_type == 'outbound'"> <div>RECIBO DE PAGO </div> </t>
+                                                
                   </div>
                 </div>
+
+ 
                 <div class="page">
                     <!--<div class="header" style="text-align:center;"><h1><strong>Payment Receipt</strong></h1></div>
                     -->
+            
+                    <div class="row">
+                        <div name="partner_address" class="col-xs-7">
+                            <strong><span t-field="o.partner_type"/><span>:</span></strong>
+                            <address t-field="o.partner_id"
+                                t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                            <span t-if="o.partner_id.vat">TIN: <span t-field="o.partner_id.vat"/></span>
+                        </div>
+                        <div class="col-xs-5">
+                           <table>
+                            <tr>
+                             <td style="width:40%;" class="text-left"><strong>Fecha Pago</strong></td>                 
+                             <td style="width:60%;" class="text-left"><p t-field="o.payment_date" /></td>
+                            </tr>
+                            <tr>
+                             <td style="width:40%;" class="text-left"><strong>Ref. No.</strong></td>                 
+                             <td style="width:60%;" class="text-left"><p t-field="o.name" /></td>
+                            </tr>
+                            <tr>
+                             <td style="width:40%;" class="text-left"><strong>Forma Pago</strong></td>                 
+                             <td style="width:60%;" class="text-left"><p t-field="o.journal_id" /></td>
+                            </tr>
+                          </table>
+                        </div>
+                    </div>
+
+
+<!--
+                  <div class="row" align="left">
+                    <div><span> DATOS DEL CLIENTE</span></div>
+                    <div><span t-field="o.partner_id.name"/></div>
+                    <div><span t-field="o.partner_id.street"/></div>
+                    <div><span t-field="o.partner_id.street2"/></div>
+                    <div><span t-field="o.partner_id.city"/></div>
+                  </div>
+               
                     <table>
                         <tr>
                             <td colspan="2" style="width:600;color:White;">.</td>
@@ -36,175 +75,132 @@
                                 </t>
                             </td>
                         </tr>
-                    </table>
+                    </table> -->
 
                     <div class= "row" style="border: 1px solid black;">
                        <div style="padding: 5px;">   
-                           <div class="col-xs-5 col-xs-offset-6">
-                              <t t-if="o.payment_date">
-                                  <ul class="list-inline">
-                                    <li><strong>Fecha:</strong></li>
-                                    <li><p t-field="o.payment_date"/></li>
-                                  </ul>
-                               </t>                                  
-                           </div>
-                           
-                          <br/>
                           <br/>
                           <table  style="width:100%">
-                            <tr style="padding:5px;">
-                              <td style="width:30%;">Departamento Solicitante:  </td>
-                              <td style="width:70%;border-bottom: 1px solid black;">CENTRO DE ESTUDIOS EDUCATIVOS</td>
-                            </tr>
-                            <tr style="padding:5px;">
+                           <!-- <tr style="padding:5px;">
                               <td style="width:30%;">Solicitamos pagar a favor de:  </td>
                               <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.partner_id.name"/> </td>
-                            </tr>
+                            </tr> -->
                             <tr>
-                              <td style="width:30%;">La suma de:  </td>
-		              <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.amount"/>
+                              <td style="width:17%;">Por un monto de:  </td>
+		              <td style="width:83%;border-bottom: 1px solid black;"><span t-field="o.amount"/>
                                 <t t-if="o.amount_in_word"> <span t-field="o.amount_in_word"/>                      
                                 </t>
                                 </td>
                             </tr>
                                                    
-                            <tr>
-                              <td style="width:30%;">Por concepto de:  </td>
-		      <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.concepto"/> </td>
-                            </tr>
-                            <tr>
-                              <td style="width:30%;">Documentacion Anexa:  </td>
-                      <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.anexo"/> </td>
-                            </tr>
-                            <tr>
-                              <td style="width:30%;">Rubro del Programa a Cargar:  </td>
-                      <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.rubro"/> </td>
-                            </tr>
-
-                            <tr>
-                              <td style="width:30%;">Evento o Actividad a Cargar:  </td>
-                               <td style="width:70%;border-bottom: 1px solid black;"><span t-field="o.evento"/> </td>
-                            </tr> 
                           </table>
                           <br/>                         
-                          <div class="row  align-items-center">
-                             <div class="col-xs-6 pull-left mt16">
-                                <div align="Center"> 
-                                   <div style="border-bottom:1px solid black">                                  
-                                       <strong t-field="o.solicitante"/>
-                                   </div>
-                                   <!--<span t-esc="40*'_'"/> -->
-                                   <p class="text-center">
-                                      <strong>Firma y sello solicitante</strong>                                     
-                                   </p>
-                                </div>
-                             </div>
-                             <div class="col-xs-6 pull-left mt16">
-                                <div align="Center">
-                                   <div style="border-bottom:1px solid black">                                  
-                                      <strong t-field="o.autorizado_por"/>
-                                   </div>
-                                   <!-- <span t-esc="40*'_'"/> -->
-                                   <p class="text-center">                                   
-                                      <strong>Autorizado por [VIA]</strong>
-                                   </p>
-                                 </div>
-                             </div>
-                          </div> 
                         </div>
                    </div> <!--Fin del Primer Frame -->
                        
-                   <div class= "row" style="border: 1px solid black; background-color:#A9A9A9;">
-                      <div align="Center">
-                         <strong> PARA USO DEL DEPARTAMENTO DE TESORERIA</strong>
-                      </div>
-                   </div>
-
                    <div class= "row" style="border: 1px solid black;">
                        <div style="padding: 5px;"> 
-                           <div class="col-xs-6">
-                              <p>Banco: <span t-esc="35*'_'"/></p>
-                           </div>
-                           <div class="col-xs-6 pull-left">
-                               <p>Cuenta: <span t-esc="35*'_'"/></p>
-                           </div>
 
-                           <table style="width:100%">                                
-                               <thead style="border: 1px solid black; background-color:#A9A9A9;">
-                                  <tr>
-                                      <td  colspan="2" class="text-center" style="width:80%;border: 1px solid black;">DEDUCCIONES</td>
-                                      <td class="text-center" style="width:20%;border: 1px solid black;">DEDUCCIONES</td>
-                                  </tr>
-                               </thead>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr style="background-color:#9b9da0; border:1px solid black;">
+                                <th>Factura # </th>
+                                <th>Fecha</th>
+                                <th class="text-right">Monto Total</th>
+                                <th class="text-right">Monto Pagado</th>
+                                <th class="text-right">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody class="payment_tbody">
+                            <tr t-foreach="o.invoice_ids" t-as="l">
+                                <td><span t-field="l.number"/></td>
+                                <td><span t-field="l.date_invoice"/></td>
+                                <td class="text-right">
+                                    <span t-field="l.amount_total"
+                                          t-options='{"widget": "monetary", "display_currency": l.currency_id}'/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-foreach="l.payment_move_line_ids" t-as="pm">
+                                        <t t-if="pm.payment_id.id == o.id">
+                                            <t t-if="l.type in ('out_invoice', 'in_refund')">
+                                                <t t-foreach="pm.matched_debit_ids" t-as="md">
+                                                    <t t-foreach="l.move_id.line_ids" t-as="ln">
+                                                        <t t-if="md.debit_move_id.id == ln.id">
+                                                            <t t-if="md.debit_move_id.amount_currency == 0.0">
+                                                                <span t-field="md.amount"
+                                                                t-options='{"widget": "monetary", "display_currency": l.currency_id}'/>
+                                                            </t>
+                                                            <t t-if="md.debit_move_id.amount_currency != 0.0">
+                                                                <span t-esc="abs(md.debit_move_id.amount_currency)"
+                                                                t-options='{"widget": "monetary", "display_currency": l.currency_id}'/>
+                                                            </t>
 
-                               <tbody style="border: 1px solid black;">
-                                  <tr>
-                                      <td  colspan="2"  style="width:80%;border: 1px solid black;color:White;">.</td>
-                                      <td style="width:20%;border: 1px solid black;color:White;">.</td>
-                                  </tr>
-                                 <!-- <tr>
-                                       <td  colspan="2" style="width:80%;border: 1px solid black;color:White;">.</td>
-                                       <td style="width:20%;border: 1px solid black;color:White;">.</td>
-                                  </tr> -->
-                                  <tr>
-                                       <td  colspan="2" style="width:80*;border: 1px solid black;color:White;">.</td>
-                                       <td style="width:20%;border: 1px solid black;color:White;">.</td>
-                                  </tr>
-                                  <tr>
-                                       <td  colspan="2" style="width:80%;border: 1px solid black;color:White;">.</td>
-                                       <td style="width:20%;border: 1px solid black;color:White;">.</td>
-                                  </tr>
-                                  <tr>
-                                       <td  class="text-right" style="width:75%;border-top: 1px solid black;">Total Deducciones:  </td>
-                                       <td style="width:10%;border: 1px solid black;color:White;">.</td>
-                                       <td style="width:15%;border: 1px solid black;color:White;">.</td>
-                                  </tr>
-                                  <tr>
-                                       <td  class="text-right" style="width:75%;">Neto a Pagar:  </td>
-                                       <td style="width:10%;border: 1px solid black; color:White;">.</td>
-                                       <td style="width:15%;border: 1px solid black; color:White;">.</td>
-                                  </tr>
-                                  <tr>
-                                      <td colspan="2" class="text-center"  style="width:80%;color:White">.</td>
-                                      <td style="width:20%;border-right: 1px solid black;color:White;">.</td>
-                                  </tr>
-                                  <tr>
-                                      <td colspan="2" class="text-center"  style="width:80%;"><span t-esc="35*'_'"/></td>
-                                      <td style="width:20%;border-right: 1px solid black;color:White;">.</td>
-                                  </tr>
-                                  <tr>
-                                      <td colspan="2"  class="text-center" style="width:80%;">Director(a) Departamento de Tesoreria</td>
-                                      <td style="width:20%;color:White;border-right: 1px solid black;">.</td>
-                                  </tr>
-                                  <tr>
-                                      <td colspan="2" class="text-center"  style="width80%;color:White">.</td>
-                                      <td style="width:20%;border-right: 1px solid black;
-                                                 border-bottom: 1px solid black;color:White;">.</td>
-                                  </tr>
-                               </tbody>
-                           </table>                          
+                                                        </t>
+                                                    </t>
+                                                </t>
+                                            </t>
+                                            <t t-if="l.type in ('in_invoice', 'out_refund')">
+                                                <t t-foreach="pm.matched_credit_ids" t-as="mc">
+                                                    <t t-foreach="l.move_id.line_ids" t-as="ln">
+                                                        <t t-if="mc.credit_move_id.id == ln.id">
+                                                            <t t-if="mc.credit_move_id.amount_currency == 0.0">
+                                                                <span t-field="mc.amount"
+                                                                t-options='{"widget": "monetary", "display_currency": l.currency_id}'/>
+                                                            </t>
+                                                            <t t-if="mc.credit_move_id.amount_currency != 0.0">
+                                                                <span t-esc="abs(mc.credit_move_id.amount_currency)"
+                                                                t-options='{"widget": "monetary", "display_currency": l.currency_id}'/>
+                                                            </t>
+                                                        </t>
+                                                    </t>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="l.residual"
+                                        t-options='{"widget": "monetary", "display_currency": l.currency_id}'/>
+                                </td>
+                            </tr>
+                            <tr style="border-top:2px solid black !important;">
+                                <td colspan="3">
+                                    <b><span>Pago Total:</span></b>
+                                </td>
+                                <td class="text-right">
+                                    <b><span t-field="o.amount"
+                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></b>
+                                </td>
+                                <td/>
+                            </tr>
+                            <t t-if="o.currency_id != o.company_id.currency_id">
+                                <tr>
+                                    <t t-set="c_amount" t-value="0.0"/>
+                                    <t t-foreach="o.move_line_ids" t-as="x">
+                                        <t t-if="x.credit == 0.0">
+                                            <t t-set="c_amount" t-value="x.debit"/>
+                                        </t>
+                                        <t t-if="x.credit != 0.0">
+                                            <t t-set="c_amount" t-value="x.credit"/>
+                                        </t>
+                                    </t>
+                                    <td colspan="3">
+                                        <b><span>Total del Recibo en </span><span t-field="o.company_id.currency_id.name"/>:</b>
+                                    </td>
+                                    <td class="text-right">
+                                        <b><span t-esc="c_amount"
+                                                 t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'/></b>
+                                    </td>
+                                    <td/>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    
+
+
+                          
                        </div>
-                   </div>
-                   <div class= "row" style="border: 1px solid black; background-color:#A9A9A9;">
-                      <div align="Center">
-                         <strong> PARA USO DEL DEPARTAMENTO DE CONTABILIDAD</strong>
-                      </div>
-                   </div>
-                   <div class= "row" style="border: 1px solid black;">
-                        <table>                   
-                           <tr>
-                               <td colspan="2" style="width:80%;color:White;">.</td>
-                               <td style="width:20%;"> 
-                                  <t t-if="o.name">
-                                    <strong> <p t-field="o.name"/></strong> 
-                                   </t>
-                               </td>
-                           </tr>
-                           <tr> <td style="width:600;color:White;">.</td> </tr>
-                           <tr> <td style="width:600;color:White;">.</td> </tr>
-                           <tr> <td style="width:600;color:White;">.</td> </tr>
-                           <tr> <td style="width:600;color:White;">.</td> </tr>
-                        </table>
                    </div>
                    <div class= "row" style="border-bottom: 1px solid black;">
                       <br/>
@@ -215,32 +211,12 @@
                              <td class="text-center" style="width:34%;"><span t-esc="30*'_'"/></td>
                          </tr>
                          <tr>
-                             <td class="text-center" style="width:33%;">Codificado</td>
+                             <td class="text-center" style="width:33%;">Preparado Por</td>
                              <td class="text-center" style="width:33%;">Revisado Por</td>
                              <td class="text-center" style="width:34%;">Digitador por</td>
                          </tr>
                       </table>
                       <br/>
-                   </div>
-                   <div class= "row">
-                       <table stype="width:100%">
-                           <tr>
-                               <td style="width:80%;">Autorizacion de Expedicion de Cheque:</td>
-                               <td style="width:20%;color:White;">.</td>
-                           </tr>
-                           <tr>
-                               <td style="width:80%;color:white;">.</td>
-                               <td style="width:20%;color:White;">.</td>
-                           </tr>
-                           <tr>
-                               <td style="width:70%;">Observaciones: <span t-esc="45*'_'" /></td>
-                               <td  class="text-center" style="width:30%;"><span t-esc="30*'_'"/></td>
-                           </tr>
-                           <tr>
-                               <td style="width:70%;"><span t-esc="58*'_'"/></td>
-                               <td  class="text-center" style="width:30%;">Administrador(a)</td>
-                           </tr>
-                       </table>
                    </div>
 <!--
                     <div class="row mt32 mb32">
@@ -251,8 +227,8 @@
                                 </tr>
                             </t>
                         </tbody>
-                    </table>
-                    <p style="text-align:center;">Thank You For Doing Business With Us</p>-->
+                    </table> -->
+                    <p style="text-align:center;">Gracia por hacer negocios con nosotros</p>
                 </div>
            <!-- </t> --> 
         </template>
@@ -268,7 +244,7 @@
                        INSTITUTO TECNOLOGICO DE SANTO DOMINGO
                 </div> -->
                 <t t-foreach="docs" t-as="o"> 
-                    <t t-call="payment_intec.report_receipt_document" t-lang="o.partner_id.lang"/>
+                    <t t-call="recibos.report_receipt_document" t-lang="o.partner_id.lang"/>
                 </t> 
             </t>
         </template>

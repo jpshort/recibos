@@ -21,21 +21,19 @@
 #
 ##############################################################################
 {
-    'name': 'Account Payment Receipt',
-    'summary': """Payment Receipt With Paid Details""",
+    'name': 'Recibo de Cobro y Pago',
+    'summary': """Recibos con detalles de pagos y/o cobro""",
     'version': '10.0.1.0',
-    'description': """Payment Receipt With Paid Details""",
-    'author': 'Cybrosys Techno Solutions',
-    'company': 'Cybrosys Techno Solutions',
-    'website': 'http://www.cybrosys.com',
+    'description': """Recibos generales de comprobantes de cobro y/o pagos""",
+    'author': 'Pedro P. Nunez Arujo',
+    'company': 'Caudata Software Solutions',
+    'website': 'http://www.ninguna.com',
     'category': 'Accounting',
     'depends': ['base', 'account'],
     'license': 'AGPL-3',
     'data': [
         'views/report_payment.xml',
         'views/report.xml',
-        'views/payment_view.xml',
-        'views/partner.xml'
     ],
     'demo': [],
     'images': ['static/description/banner.jpg'],
